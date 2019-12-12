@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
         # elsif @comment.user_id != current_user.id
         # flash[:error] = "You cannot delete other people's posts"
         # end
-   @comments = current_user.comments.destroy(params[:id])
+        Comment.find(params[:id]).destroy
+   # current_user.comments.destroy(params[:id])
 
          redirect_to posts_url
   end
